@@ -8,7 +8,8 @@ describe "ActiveRecord American Gladiator" do
       Item.create(name: "Crash Pad", status: "inactive")
 
       # Changeable Start
-      items = Item.all
+      # items = Item.all
+      items = Item.all.unscope(where: :status)
       # Changeable End
 
       expect(items.count).to eq 3
@@ -16,13 +17,15 @@ describe "ActiveRecord American Gladiator" do
   end
 
   context "Powerball" do
-    xit "returns all items containing Powerball" do
+    it "returns all items containing Powerball" do
       Item.create(name: "Powerball Ball")
       Item.create(name: "Powerball Goal")
       Item.create(name: "Trap Door")
 
       # Changeable Start
-      items = Item.all
+      # items = Item.all
+      # where("headline LIKE ?", "%stack overflow%")
+      items = Item.where("name LIKE ?", "%Powerball%")
       # Changeable End
 
       expect(items.count).to eq(2)
@@ -163,4 +166,3 @@ describe "ActiveRecord American Gladiator" do
     end
   end
 end
-
