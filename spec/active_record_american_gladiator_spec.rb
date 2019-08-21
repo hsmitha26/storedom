@@ -90,18 +90,21 @@ describe "ActiveRecord American Gladiator" do
   end
 
   context "Breakthrough and Conquer" do
-    xit "returns all orders with Footballs and Wrestling Rings" do
+    it "returns all orders with Footballs and Wrestling Rings" do
       wrestling_ring = Item.create(name: "Wrestling Ring")
       football       = Item.create(name: "Football")
       sweat          = Item.create(name: "Sweat")
+
       order_1        = Order.create(items: [wrestling_ring])
       order_2        = Order.create(items: [sweat])
       order_3        = Order.create(items: [football])
 
       # Changeable Start
-      orders = Order.all.select do |order|
-        order.items.include?(football) || order.items.include?(wrestling_ring)
-      end
+      # orders = Order.all.select do |order|
+      #   order.items.include?(football) || order.items.include?(wrestling_ring)
+      # end
+
+      
       # Changeable End
 
       # Hint: Take a look at the `Joins` section and the example that combines `joins` and `where` here: http://apidock.com/rails/ActiveRecord/QueryMethods/where
