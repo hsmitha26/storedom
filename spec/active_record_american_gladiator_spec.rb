@@ -104,7 +104,8 @@ describe "ActiveRecord American Gladiator" do
       #   order.items.include?(football) || order.items.include?(wrestling_ring)
       # end
 
-      
+      orders = Order.joins(:items).where.not("items.name = ?","Sweat")
+
       # Changeable End
 
       # Hint: Take a look at the `Joins` section and the example that combines `joins` and `where` here: http://apidock.com/rails/ActiveRecord/QueryMethods/where
