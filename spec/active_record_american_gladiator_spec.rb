@@ -139,7 +139,7 @@ describe "ActiveRecord American Gladiator" do
 
   context "Atlasphere" do
     # This one is challenging.
-    xit "returns most popular items" do
+    it "returns most popular items" do
       scoring_pod = Item.create(name: "Scoring Pod")
       lights      = Item.create(name: "Lights")
       smoke       = Item.create(name: "Smoke")
